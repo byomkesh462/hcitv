@@ -1,8 +1,8 @@
 <?php
 // © Avishkar Patil | customized by @Ayusman-Bieb
-// avishek.t@gmail.com:kolkata@1
-$email = "ishitdas1985@gmail.com"; // Put Your hoichoi Email
-$password = "ISHIT1985"; // Put Your hoichoi Password
+// ishitdas1985@gmail.com:ISHIT1985
+$email = "avishek.t@gmail.com"; // Put Your hoichoi Email
+$password = "kolkata@1"; // Put Your hoichoi Password
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
