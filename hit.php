@@ -87,10 +87,35 @@ curl_setopt_array($xurl, array(
   ),
 ));
 $result = curl_exec($xurl);
-echo $result;
 curl_close($xurl);
 #-----------------------------# Found Video Details
+$hoichoi =json_decode($result, true);
 
+$title = $hoichoi['video']['gist']['title'];
+$plink = $hoichoi['video']['gist']['permalink'];
+$des = $hoichoi['video']['gist']['description'];
+$lang = $hoichoi['video']['gist']['languageCode'];
+$category = $hoichoi['video']['gist']['primaryCategory']['title'];
+$posterImage = $hoichoi['video']['gist']['posterImageUrl']; //poster Image
+$videoImage = $hoichoi['video']['gist']['videoImageUrl']; // Video Thumbnail
+
+$drm = $hoichoi['video']['gist']['drmEnabled']; // DRM checking
+$imdb = $hoichoi['video']['gist']['metadata'][2]['value']; // imdb id
+
+$srt = $hoichoi['video']['contentDetails']['closedCaptions'][0]['url']; //srt subtitle
+$hls = $hoichoi['video']['streamingInfo']['videoAssets']['hls']; // auto all qualities included
+$h270 = $hoichoi['video']['streamingInfo']['videoAssets']['mpeg'][0]['url']; // 270p
+$h360 = $hoichoi['video']['streamingInfo']['videoAssets']['mpeg'][0]['url']; // 360p
+$h720 = $hoichoi['video']['streamingInfo']['videoAssets']['mpeg'][0]['url']; // 720p
+
+
+ $apii = array("created_by" => "Avishkar Patil", "customized_by" => "Ayusman Bieb", "id" => $id, "lang" => $lang, "category" => $category, "title" => $title, "permalink" => $plink, "description" => $des, "posterImage" => $posterImage, "videoImage" => $videoImage, "drmEnabled" => $drm, "imdb_id" => $imdb, "hls" => $hls, "270p" => $h270, "360p" => $h360, "720p" => $h720, "subtitle" => $srt);
+
+ $api =json_encode($apii, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+
+header("X-UA-Compatible: IE=edge");
+header("Content-Type: application/json");
+echo $api;
 }
 else{
   $ex= array("error" => "Something went wrong, Check URL and Parameters !", "created_by" => "Avishkar Patil", "customized_by" => "Ayusman Bieb" );
