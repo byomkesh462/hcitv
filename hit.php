@@ -1,6 +1,6 @@
 <?php
-// © Avishkar Patil | customized by @Ayusman-Bieb
-// ishitdas1985@gmail.com:ISHIT1985
+// © Avishkar Patil | customized by @Ayusman-Bieb 
+// sahely.bhadra@gmail.com : somdatta
 $email = "avishek.t@gmail.com"; // Put Your hoichoi Email
 $password = "kolkata@1"; // Put Your hoichoi Password
 
@@ -92,6 +92,7 @@ curl_close($xurl);
 $hoichoi =json_decode($result, true);
 
 $title = $hoichoi['video']['gist']['title'];
+$year = $hoichoi['video']['gist']['year'];
 $plink = $hoichoi['video']['gist']['permalink'];
 $des = $hoichoi['video']['gist']['description'];
 $lang = $hoichoi['video']['gist']['languageCode'];
@@ -109,7 +110,7 @@ $h360 = $hoichoi['video']['streamingInfo']['videoAssets']['mpeg'][0]['url']; // 
 $h720 = $hoichoi['video']['streamingInfo']['videoAssets']['mpeg'][0]['url']; // 720p
 
 
- $apii = array("created_by" => "Avishkar Patil", "customized_by" => "Ayusman Bieb", "id" => $id, "lang" => $lang, "category" => $category, "title" => $title, "permalink" => $plink, "description" => $des, "posterImage" => $posterImage, "videoImage" => $videoImage, "drmEnabled" => $drm, "imdb_id" => $imdb, "hls" => $hls, "270p" => $h270, "360p" => $h360, "720p" => $h720, "subtitle" => $srt);
+ $apii = array("created_by" => "Avishkar Patil", "customized_by" => "Ayusman Bieb", "id" => $id, "lang" => $lang, "category" => $category, "title" => $title, "year" => $year, "permalink" => $plink, "description" => $des, "posterImage" => $posterImage, "videoImage" => $videoImage, "drmEnabled" => $drm, "imdb_id" => $imdb, "hls" => $hls, "270p" => $h270, "360p" => $h360, "720p" => $h720, "subtitle" => $srt);
 
  $api =json_encode($apii, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 
