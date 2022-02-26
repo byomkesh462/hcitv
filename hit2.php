@@ -54,24 +54,15 @@ curl_close($xurl);
 $hoichoi =json_decode($result, true);
 
 $title = $hoichoi['video']['gist']['title'];
-#$year = $hoichoi['video']['gist']['year'];
-if(is_null($hoichoi['video']['gist']['year'])) {
-    $year = 2022;
-}
+$year = $hoichoi['video']['gist']['year'];
 $plink = $hoichoi['video']['gist']['permalink'];
 $des = $hoichoi['video']['gist']['description'];
 $lang = $hoichoi['video']['gist']['languageCode'];
 $category = $hoichoi['video']['gist']['primaryCategory']['title'];
-#$posterImage = $hoichoi['video']['gist']['posterImageUrl']; //poster Image
-if(is_null($hoichoi['video']['gist']['posterImageUrl'])) {
-    $posterImage = "https://www.hoichoi.tv/";
-}
+$posterImage = $hoichoi['video']['gist']['posterImageUrl']; //poster Image
 $videoImage = $hoichoi['video']['gist']['videoImageUrl']; // Video Thumbnail
 $drm = $hoichoi['video']['gist']['drmEnabled']; // DRM checking
-if(is_null($hoichoi['video']['gist']['metadata'][2]['value'])) {
-    $imdb = "not defined";
-}
-#$imdb = $hoichoi['video']['gist']['metadata'][2]['value']; // imdb id
+$imdb = $hoichoi['video']['gist']['metadata'][2]['value']; // imdb id
 $srt = $hoichoi['video']['contentDetails']['closedCaptions'][0]['url']; //srt subtitle
 $hls = $hoichoi['video']['streamingInfo']['videoAssets']['hls']; // auto all qualities included
 $h270 = $hoichoi['video']['streamingInfo']['videoAssets']['mpeg'][0]['url']; // 270p
